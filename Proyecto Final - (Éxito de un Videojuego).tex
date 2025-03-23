@@ -1,0 +1,495 @@
+\documentclass[titlepage,a4paper]{article}
+
+% Escritura de acentos:
+%--------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pict2e}
+
+
+\usepackage[spanish]{babel}  % Para traducir al español
+
+
+\DeclareRobustCommand{\rightangle}{%
+  \begingroup\setlength{\unitlength}{1ex}%
+  \begin{picture}(1.2,1)
+  \roundcap
+  \polyline(0.1,1)(0.1,0)(1.1,0)
+  \end{picture}%
+  \endgroup
+}
+
+
+
+\usetikzlibrary{calc}
+
+
+
+% Selección de idioma (español)
+%--------------------------------------------------------------------------
+
+\usepackage[spanish,es-tabla]{babel}
+\selectlanguage{spanish}
+
+% Título, autor, materia y fecha (rellenar)
+%--------------------------------------------------------------------------
+
+\newcommand{\titulo}{Proyecto Final \\\\ 
+
+(Éxito de un Videojuego)
+} 
+
+\newcommand{\facultad}{Matemáticas e Ingenierias} 
+
+\newcommand{\autora}{    
+\\ Ruby Alexandra Tovar Palma - 614 232700
+
+
+}
+\newcommand{\autor}{
+\\ Santiago Steven Sanchez Barbosa - 614 232708
+}
+
+\newcommand{\docente}{
+\\ \textbf{Docente:  Julián Orlando Jiménez Cárdenas} 
+}
+\newcommand{\materia}{Modelado y Simulación I}
+
+\newcommand{\ciudad}{Bogotá D.C.}
+\newcommand{\universidad}{Fundación Universitaria Konrad Lorenz}
+\newcommand{\fecha}{21 de marzo de 2025}
+% Muestra por defecto la fecha actual
+
+% Paquete para generar texto de relleno. Se puede eliminar
+%--------------------------------------------------------------------------
+
+\usepackage{lipsum}
+
+% Dimensiones de página
+%--------------------------------------------------------------------------
+
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+
+% Paquetes de la AMS
+%--------------------------------------------------------------------------
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{soul}
+
+
+% Paquetes de símbolos usuales y de formato de ecuaciones
+%--------------------------------------------------------------------------
+
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{commath}
+
+\def\NN{\mathbb{N}}
+\def\ZZ{\mathbb{Z}}
+\def\QQ{\mathbb{Q}}
+\def\RR{\mathbb{R}}
+\def\CC{\mathbb{C}}
+
+%--------------------------------------------------------------------------
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{subcaption} % Para subtítulos en subfiguras
+
+%--------------------------------------------------------------------------
+\usepackage{hyperref} 
+\usepackage{tocloft} 
+
+\renewcommand{\cftsecfont}{\normalfont} 
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
+
+%--------------------------------------------------------------------------
+
+\usepackage{listings} 
+
+\lstset{language=Octave} 
+
+\usepackage{color} 
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ % 
+	backgroundcolor=\color{white},   
+	basicstyle=\footnotesize,        
+	breaklines=true,                 
+	captionpos=t,                    
+	commentstyle=\color{mygreen},    
+	escapeinside={\%}{)},          
+	keywordstyle=\color{blue},       			 
+	stringstyle=\color{mymauve},     
+	frame=tb,						
+	tabsize=3,						
+    showstringspaces=false,			 
+	upquote=true					 
+}
+
+
+\lstset{literate= 
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1 {~}{{$\sim$}}1
+}
+
+
+%--------------------------------------------------------------------------
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy} 
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0.5pt} 
+\renewcommand{\footrulewidth}{0.5pt}
+
+\lhead{\scshape \materia} 
+\rhead{\titulo}
+\lfoot{\autora \autor}
+\rfoot{\thepage}
+
+%--------------------------------------------------------------------------
+
+\begin{document}
+	
+	% Portada
+	%----------------------------------------------------------------------
+	
+	\begin{titlepage}
+		
+		\centering	
+		
+		{\scshape\LARGE Facultad de \facultad\par}
+		
+		\vspace{1cm}
+		
+		{\scshape\Large \materia\par}
+		
+		\vspace{1.5cm}                            
+		
+		{\huge\bfseries \titulo\par}
+		
+		\vspace{3cm}                            
+		
+		{\Large\itshape \autora}
+  
+		\vspace{0.5cm}                            
+
+  	{\Large\itshape \autor}
+  
+		\vspace{3cm}                            
+
+  	{\Large\itshape \docente}
+		
+		\vfill
+
+        {\Large \universidad\par}   % Negrita para destacar la universidad
+        {\large \ciudad\par}
+        {\large \fecha}
+		
+	\end{titlepage}    
+%-----------------------------------------------------------------------
+
+\vspace*{3cm}
+\Large{\textbf{}}\\
+\vspace{2cm}    
+\normalsize
+\tableofcontents
+\newpage
+
+
+\\
+\section{Introducción}
+
+El mundo de los videojuegos durante las ultimas décadas ha sido un mercado en constante crecimiento ya que cuenta con lo mejor de todos los sectores del entretenimiento y ademas con la evolución de los dispositivos tecnológicos, los cuales cada vez son más avanzados y con mayor capacidad para lograr ejecutar videojuegos de mas calibre y mas calidad, es normal el querer entrar en este mercado lo antes posible. Sin embargo, este nicho tiene múltiples factores a tener en cuenta para lograr entrar y, sobretodo, triunfar con el lanzamiento de algún titulo. Siendo tan así que, incluso, empresas ya posicionadas en el sector tienen dificultades para poder replicar éxitos anteriores o en general entender que es lo que quiere su audiencia; por tales razones es de suma importancia tener a la mano una visión estadística y matemática de que hace a u  juego exitoso ser, justamente, exitoso.   \\
+
+Cada videojuego que ha sido exitoso y a su vez se ha convertido en un referente para la industria tiene un matiz y una característica que lo hace único y especial frente a la comunidad amante del gaming. Para destacar no es necesario reinventar la rueda, a veces basta con trabajar bajo un modelo que cuente con características fundamentales que permita tener una cierta parte de la atención de la audiencia ya ganada. Tales características van desde lo mas intrínseco del juego hasta algunos factores externos al mismo, como lo son el genero, los gráficos, la fecha de lanzamiento, el precio y muchas otras variables de las cuales hablaremos mas adelante. \\
+
+El modelo matemático del cual se entrara en profundidad en las siguientes paginas mostrara una forma de predecir de una manera objetiva mediante el uso de datos reales las probabilidades que tiene un nuevo videojuego de ser un éxito según la tendencia de los 100 videojuegos mejor valorados tanto por la critica como por la audiencia en general. El modelo no solo busca poder ser una herramienta que permita conocer el éxito de los videojuegos próximos a ser lanzados, sino que incluso poder predecir si la idea de un nuevo desarrollo que ni siquiera ha comenzado pueda ser viable para el estudio que lo lleve a cabo. \\ \\
+
+\section{Objetivo general}
+Desarrollar un modelo matemático basado en datos reales que permita predecir la probabilidad de éxito de un videojuego antes de su lanzamiento, considerando tanto tendencias del mercado como factores clave identificados en los 100 videojuegos mejor valorados por la crítica y la audiencia.\\
+
+
+\subsection{Objetivos específicos}
+
+\begin{enumerate}
+
+    \item \textbf{Analizar los factores determinantes del éxito} de un videojuego, incluyendo género, gráficos, fecha de lanzamiento, precio y otros elementos internos y externos. \\
+    
+    \item \textbf{Construir un modelo predictivo }basado en tendencias estadísticas y matemáticas extraídas de los videojuegos mejor valorados en la industria. \\
+    
+    \item \textbf{Evaluar la viabilidad de nuevas ideas de desarrollo} antes de que inicie la producción, con el fin de optimizar recursos y minimizar riesgos financieros. \\
+    
+    \item \textbf{Proporcionar una herramienta de apoyo} para estudios de videojuegos que permita tomar decisiones informadas sobre el diseño y comercialización de nuevos títulos.
+
+    \item \textbf{Comparar los resultados del modelo con casos reales} para validar su precisión y mejorar su capacidad de predicción a lo largo del tiempo.
+
+\end{enumerate}
+
+\vspace{1cm}
+
+\section{Requisitos de datos}
+
+Para el desarrollo del modelo matemático se harán uso de dos bases de datos pertenecientes a dos medios muy confiables, dichas fuentes de información son: \\
+
+\begin{enumerate}
+    \item \textbf{SteamDB: }Es una base de datos no oficial pero confiable que extrae información directamente de Steam, la principal plataforma de distribución de videojuegos en PC. Ofrece datos detallados sobre precios, número de jugadores, reseñas y tendencias de ventas en tiempo real, siendo una herramienta clave para analizar el éxito y la popularidad de los juegos. \\
+
+    \item \textbf{IGDB (Internet Game Database): }Es una base de datos de videojuegos respaldada por Twitch, lo que garantiza la calidad y precisión de sus datos. Proporciona información estructurada sobre géneros, estudios desarrolladores, fechas de lanzamiento y puntuaciones de críticos y jugadores, siendo una referencia esencial para el análisis de tendencias en la industria del gaming.
+\end{enumerate}
+
+\begin{figure}[h]
+
+\hspace{0.01\textwidth}
+    \centering
+    % Primera imagen con enlace
+    \begin{minipage}{0.45\textwidth} % Ajusta el ancho según necesites
+        \centering
+        \href{https://steamdb.info}{ % Enlace al hacer clic
+            \includegraphics[width= 6cm]{SteamDB.png}
+        }
+        \caption{SteamDB}
+    \end{minipage}
+    \hspace{0.07\textwidth} % Espacio horizontal entre imágenes
+    % Segunda imagen con enlace
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \href{https://www.igdb.com/top-100/games/platform/all/2000-2025}{\includegraphics[width= 6cm]{IGDB.png}
+        }
+        \caption{IGDB (Internet Game Database)}
+    \end{minipage}
+\end{figure}
+
+\vspace{1cm}
+
+%--------------------------------------------------------------------------
+
+\section{Definición de Variables}
+
+Para este caso, se hará uso de un modelo que sea capaz de predecir el éxito de videojuegos a partir de factores de popularidad extraídos tras el análisis de datos históricos de la base de datos SteamDB y de IGDB. Es así como las variables empleadas para el modelo serán:
+
+\begin{itemize}
+    \item Género del videojuego.
+    \item Gráficos.
+    \item Modo de juego.
+    \item Microtransacciones.
+    \item Número de descargas.
+    \item Puntuación.
+    \item Jugadores activos.
+    \item Mes de lanzamiento.
+    \item Tamaño de la desarrolladora.
+    \item Éxito o popularidad de la desarrolladora.
+    \item Precio de compra. \\
+\end{itemize}
+
+Puesto que existen datos categóricos como el género, gráficos, entre otras variables, se extraerá la repetición de cada dato categórico a manera de un patrón que se repite en juegos exitosos, y se van a mapear los datos categóricos mediante valores numéricos. Por ejemplo, si el género que lidera a los juegos más populares es indie, entonces a este se le asignará un valor en un intervalo $[a, b]$ que valore patrones de popularidad, siendo $b>a$, con $b$ siendo el valor asignado a los juegos de género indie y $a$ el valor asignado al género de juegos menos popular. \\\\
+
+\subsection{Definición de Variables Independientes y Dependientes}
+La idea principal es definir una ecuación general que modele el éxito de un videojuego. Primero, se hace un análisis previo de las variables, dado que algunas tienen dependencia de otras, por lo que se definirán variables independientes y dependientes, con las cuales se crearán funciones compuestas. \\
+
+\subsubsection{Variables Independientes}
+\begin{itemize}
+    \item Género del videojuego ($G$).
+    \item Modo de juego ($M$).
+    \item Microtransacciones ($Mt$). 
+    \item Gráficos ($Gf$).
+    \item Tamaño del estudio ($Te$).
+    \item Mes del lanzamiento ($Lm$). \\
+\end{itemize}
+
+\subsubsection{Variables Dependientes}
+\begin{itemize}
+    \item \textbf{Precio ($Pv$):} Depende de la desarrolladora, el modo de juego, los gráficos y las microtransacciones. $Pv(Te, M, Mt, Gf)$. \\
+    
+    \item \textbf{Wishlist ($W$):} Indica el interés de los jugadores y depende del género, mes de lanzamiento y precio. $W(G, Lm, Pv)$. \\
+    
+    \item \textbf{Puntuaciones ($P$):} Relación calidad-precio. $P(W, Pv)$. \\
+    
+    \item \textbf{Número de descargas ($D$):} Depende de las puntuaciones, el precio y los jugadores activos. $D(Ja)$. \\
+    
+    \item \textbf{Jugadores activos ($Ja$):} Depende del precio, la calidad y las puntuaciones. $Ja(P)$. \\
+\end{itemize}
+
+Dado que las funciones son compuestas, para evitar la repetición de variables, se ha simplificado la notación eliminando redundancias. Así, para obtener la expresión con todas las variables necesarias, basta con reemplazar las variables dependientes en las funciones: $Ja(P) \rightarrow Ja(W, Pv) \rightarrow Ja(G, Lm, Pv, Pv) \rightarrow Ja(G, Lm, Pv) \rightarrow Ja(G, Lm, Te, M, Mt, Gf, Ed)$. \\
+
+Aunque existen muchas variables dependientes, en esta modelación el éxito de un videojuego se determinará principalmente por el número de descargas, ya que este refleja tanto la ganancia económica como el crecimiento de la comunidad, factores clave para considerar un juego exitoso. Sin embargo, el éxito no depende únicamente de este aspecto, sino también de la popularidad sostenida del juego a lo largo del tiempo. Por ello, el éxito también estará influenciado por la cantidad de jugadores activos, las puntuaciones y el precio, ya que estos factores incentivan a más usuarios a descargar el videojuego. Así, el éxito puede representarse mediante la siguiente ecuación: \\ \\ 
+
+ \[E(D, Ja, P) = aD + bJa + cP + dPv\]\\
+
+Sin embargo, como el precio ya está involucrado las otras variables dependientes, se puede omitir, simplificando la función. \\\\
+
+\begin{equation}
+    E(D, Ja, P) = aD + bJa + cP
+\end{equation} \\
+
+
+
+\subsection{Uso de Regresiones para la Predicción de Datos}
+Una vez definida la función que modela el éxito, es necesario determinar los valores de $a$, $b$ y $c$. Para ello, se emplearán modelos de regresión, que podrán variar entre regresión lineal y logística, dependiendo del comportamiento de las variables dependientes.
+
+
+\subsubsection{Métodos de Regresión}
+Puesto que tanto SteamDB como IGDB proporcionan suficientes datos históricos, se pueden aplicar métodos de regresión: \\
+
+\begin{enumerate}
+
+    \item \textbf{Regresión Lineal}: Se analiza si las relaciones entre los datos históricos y las variables independientes son lineales. \\
+    
+    \item \textbf{Regresión Logística}: Para un manejo de datos con resultados binarios. \\
+    
+    \item \textbf{Regresión Polinómica}: Si los datos tienen una varianza significativa en su distribución. \\
+    
+\end{enumerate}
+
+Según la distribución de los datos en un sistema de coordenadas cartesianas y su varianza, se aplicarán distintos métodos de regresión a las variables dependientes $D$, $Ja$ y $P$. Esto permitirá optimizar el ajuste de datos mediante análisis estadístico y seleccionar el método más adecuado en función del cálculo de la varianza y las distribuciones. \\
+
+\subsection{Cálculo del Éxito}
+
+Una vez determinadas las ecuaciones de $D$, $Ja$ y $P$ mediante regresiones, se procederá a calcular el éxito del videojuego. Para ello, se pueden emplear tres enfoques diferentes: \\
+
+\begin{enumerate}
+    \item \textbf{Método de mínimos cuadrados:} Utilizando el cálculo de $D$, $Ja$ y $P$ para la construcción de matrices que permitan modelar la relación entre las variables. \\
+    
+    \item \textbf{Asignación de pesos a las variables $a$, $b$ y $c$:} Estos valores porcentuales determinan la influencia de $D$, $Ja$ y $P$ en el éxito del videojuego, según los datos históricos. \\
+    
+    \item \textbf{Aplicación de modelos de regresión:} Dependiendo de la naturaleza de los datos, se empleará regresión logística para datos binarios o regresiones polinomiales y lineales para datos continuos.
+\end{enumerate}
+
+
+\vspace{1cm}
+
+%--------------------------------------------------------------------------
+
+\section{Plan de implementación}
+
+\subsection{Técnicas de procesamiento y limpieza de datos}
+
+Dado el contexto del problema y la naturaleza de las bases de datos con las cuales haremos el modelo predictivo, hay que tener ciertas pautas para garantizar la calidad de la predicción así como también la coherencia del modelo planteado. \\
+
+\begin{itemize}
+    \item Se recopilarán datos de fuentes confiables como \textbf{SteamDB} e \textbf{IGDB}, asegurando que sean relevantes y actualizados. A su vez se hará la debida eliminación de valores nulos y duplicados.\\
+
+    \item Conversión de datos categóricos en valores numéricos mediante codificación ordinal o one-hot encoding (ejemplo: asignar valores a géneros de videojuegos según su popularidad). \\
+
+    \item Escalado de variables numéricas para mejorar la estabilidad del modelo (normalización o estandarización según convenga). \\
+
+    \item Análisis de correlación entre variables para identificar posibles redundancias y optimizar el modelo. \\ \\
+    
+\end{itemize}
+
+\subsection{Bibliotecas} 
+    Se hara uso de las siguientes bibliotecas tanto para el manejo como para la gestión de los datos a la hora de implementar el modelo en Python. \\
+
+\begin{itemize}
+    \item \textbf{Pandas y NumPy:} Para manipulación de datos. \\
+
+    \item \textbf{Matplotlib y Seaborn:} Para visualización de distribuciones y correlaciones. \\
+
+    \item  \textbf{Scikit-learn:} Para aplicar regresiones lineales, polinómicas o logísticas según corresponda. \\
+
+    \item \textbf{Statsmodels:} Para realizar análisis de regresión y determinar la significancia estadística de las variables. \\\\
+    
+\end{itemize}
+
+\subsection{Métodos para la validación y prueba del modelo}
+Para garantizar la precisión y fiabilidad del modelo propuesto, es necesario validarlo utilizando diferentes estrategias. Estas pruebas permiten comparar los resultados del modelo con la realidad y ajustar los parámetros para mejorar su desempeño. A continuación, se presentan los métodos clave para evaluar la efectividad del modelo: \\
+
+\begin{itemize}
+    \item Usar el modelo con un juego que ya haya salido antes y de esta manera llevar a cabo una comparación entre la realidad y la predicción propuesta por el modelo. \\
+
+    \item \textbf{Cálculo de métricas de rendimiento según el tipo de regresión:} MSE (Error Cuadrático Medio) y R² para regresiones lineales y polinómicas. Y también Accuracy, precisión, recall y F1-score para regresión logística. \\
+
+    \item Validación cruzada para evitar sobreajuste y verificar la robustez del modelo.
+
+
+\end{itemize}
+
+\vspace{1cm}
+
+%--------------------------------------------------------------------------
+
+\section{Resultados esperados}
+
+El modelo desarrollado permitirá extraer información valiosa sobre los factores que influyen en el éxito de un videojuego. Además, ayudará a comprender el impacto de distintas variables en la popularidad de un título. \\
+
+\subsection{Tipo de información o soluciones esperadas}
+
+Uno de los principales objetivos del modelo es identificar qué características tienen mayor impacto en el éxito de un videojuego. Además, se busca evaluar cómo factores como el precio afectan la popularidad del juego, lo que puede ser útil para estudios de mercado y estrategias de lanzamiento. \\
+
+\begin{itemize}
+    \item Identificación de los factores con mayor impacto en el éxito de un videojuego. \\
+
+    \item Evaluación del impacto del precio y otros factores en la popularidad del juego.\\\\
+\end{itemize}
+
+\subsection{Visualizaciones o representaciones potenciales}
+
+Para facilitar la interpretación de los datos y las relaciones entre las variables, se utilizarán diversas herramientas de visualización. Estas representaciones gráficas ayudarán a comprender mejor los patrones que influyen en el éxito de un videojuego. \\
+
+\begin{itemize}
+    \item \textbf{Matriz de correlación} para analizar relaciones entre variables. \\
+
+    \item \textbf{Gráficos de dispersión} mostrando la relación entre puntuaciones, descargas y éxito. \\
+
+    \item \textbf{Histogramas y boxplots} para distribución de datos categóricos y numéricos. \\
+
+    \item \textbf{Gráficos de regresión} para visualizar el ajuste de los modelos a los datos. \\\\
+\end{itemize}
+
+\subsection{Aplicación de los resultados al problema real}
+
+Los hallazgos del modelo podrán ser utilizados en la industria del videojuego para mejorar la toma de decisiones. A partir de los resultados obtenidos, se podrán diseñar estrategias para aumentar las probabilidades de éxito de un título antes de su lanzamiento. \\
+
+\begin{itemize}
+    \item Recomendaciones para estudios de videojuegos sobre géneros, precios y estrategias de lanzamiento para maximizar el éxito. \\
+
+    \item Identificación de patrones en videojuegos exitosos y no exitosos. \\
+
+    \item  Evaluación de tendencias para prever qué características impulsarán la popularidad de futuros lanzamientos. \\
+\end{itemize}
+
+\vspace{0.5cm}
+
+%--------------------------------------------------------------------------
+
+\section{Referencias}
+
+\begin{enumerate}
+
+    \item SteamDB. (n.d.). \textit{Steam Database}. Retrieved from \url{https://steamdb.info}
+
+
+    \item IGDB. (n.d.). \textit{Internet Game Database}. Retrieved from \url{https://www.igdb.com}
+
+\end{enumerate}
+
+
+\end{document} 
